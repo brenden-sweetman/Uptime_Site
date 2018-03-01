@@ -1,0 +1,19 @@
+ Author: Brenden Sweetman brenden.sweetman@wustl.edu
+ Title: Notes for uptime website
+__________________________________________________________________________________________________
+
+
+List of Sites to monitor:
+
+Name                       | Domain                                        | IP             | 
+--------------------------------------------------------------------------------------------------
+Ares                       | ares.wustl.edu                                | 128.252.67.118 |
+Classic Catalog            | catalog.wustl.edu                             | 128.252.67.17  |
+Digital Gateway (DLXS)     | digital.wustl.edu                             | 128.252.67.14  |
+Findit                     | 
+Illiad                     | illiad.wustl.edu                              | 128.252.67.41  |
+Libguides                  | libguides.wustl.edu-> secure-us.libguides.com | 52.54.77.227   | 
+OCLC WorldCat              | www.worldcat.org                              | 132.174.0.31   |
+Primo                      | wash-primo.hosted.exlibrisgroup.com           | 66.151.7.251   |
+Repository (Samvera)       | repository.wustl.edu                          | 128.252.67.231 |
+Streaming Video (Samvera)  | streamingvideo.wustl.edu                      | 128.252.67.8   |
