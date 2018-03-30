@@ -50,7 +50,6 @@ def main():
                     pingTime= re.findall(r"time=([\d\.]+)",pingResults)[0]
 
                 requestData=(domain[0],statusCode,errorMessage,pingTime,httpTime)
-                print(requestData)
                 cursor = dbCon.cursor()
                 cursor.execute("INSERT INTO requests (domain_id,status_code,error_message,ping_time,http_time) VALUES (%s,%s,%s,%s,%s)",requestData)
                 dbCon.commit()
