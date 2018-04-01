@@ -1,0 +1,8 @@
+<h2>Active Services: {{services.length}}</h2>
+
+<ul>
+  <li ng-repeat="service in services">
+    <h3>{{service.name}}</h3>
+    <span>{{service.ip}} || {{service.domain}}</span>
+  </li>
+</ul>
