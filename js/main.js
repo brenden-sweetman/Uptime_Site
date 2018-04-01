@@ -1,10 +1,4 @@
 /***** VARIABLES *****/
-
-/***** EVENT LISTENERS *****/
-
-/***** FUNCTIONS ******/
-
-
 var services = [
   {
     name: 'Ares',
@@ -48,3 +42,7 @@ var services = [
     ip: '128.252.67.8'
   }
 ];
+
+/***** EVENT LISTENERS *****/
+
+/***** FUNCTIONS ******/
