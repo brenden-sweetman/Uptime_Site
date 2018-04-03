@@ -8,6 +8,8 @@ body {
 }
 
 #header {
+  position: fixed;
+  top: 0;
   width: 100%;
   height: 50px;
   background-color: rgb(165, 20, 23);
@@ -18,4 +20,99 @@ body {
   left: 50px;
   top: 0px;
   height: 50px;
+}
+
+#wrapper {
+  position: fixed;
+  top: 50px;
+  width: 100%;
+  height: 100%;
+}
+
+#legend {
+  width: 100%;
+  height: 20px;
+  min-width: 600px;
+  margin: 20px 0 0 0;
+  padding: 10px 10px 20px 10px;
+  border-bottom: 1px solid black;
+}
+
+#legend_current {
+  width: 9%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  border-right: 3px solid black;
+}
+
+#legend_name {
+  width: 18%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+#legend_week {
+  width: 63%;
+  height: 100%;
+  float: left;
+  text-align: center;
+}
+
+.legend_day {
+  width: 12%;
+  height: 100%;
+  float: left;
+  text-align: center;
+  border-left: 3px solid black;
+}
+
+.service {
+  width: 100%;
+  height: 90px;
+  min-width: 600px;
+  margin: 0 0 20px 0;
+  padding: 0 10px 0 10px;
+  border-bottom: 1px solid black;
+}
+
+.service_header {
+  width: 100%;
+  height: 100%;
+}
+
+.current_status {
+  width: 9%;
+  height: 100%;
+  background-color: #7fff00;
+  float: left;
+  border-right: 3px solid black;
+}
+
+.service_name {
+  width: 18%;
+  height: 100%;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  float: left;
+}
+
+.week_history {
+  width: 63%;
+  height: 100%;
+  float: left;
+}
+
+.day_status {
+  width: 12%;
+  height: 100%;
+  float: left;
+  background-color: #7fff00;
+  border-left: 3px solid black;
+}
+
+.service_details {
+
 }
