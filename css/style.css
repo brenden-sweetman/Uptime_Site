@@ -30,7 +30,7 @@ h2 {
   margin: 0;
   padding: 0;
   color: white;
-  font-family: "Libre Baskerville", "Times New Roman", serif;
+  font-family: Helvetica, "Helvetica", serif;
   font-size: 18px;
   font-weight: lighter;
 }
@@ -68,6 +68,7 @@ h2 {
 .service_chart {
   width: 420px;
   height: 300px;
+  font-family: Helvetica, "Helvetica", serif;
 }
 
 #footer {
