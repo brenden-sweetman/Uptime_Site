@@ -1,0 +1,26 @@
+{
+  "name": "wuptime",
+  "version": "1.0.0",
+  "description": "Create a website to monitor the uptime of wustl library resources",
+  "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.7.2",
+    "moment": "^2.22.0",
+    "npm": "^5.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brenden-sweetman/Uptime_Site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brenden-sweetman/Uptime_Site/issues"
+  },
+  "homepage": "https://github.com/brenden-sweetman/Uptime_Site#readme"
+}

@@ -1,4 +1,6 @@
 /***** VARIABLES *****/
+moment().format();
+
 var services = [
   {
     name: 'Ares',
@@ -73,6 +75,16 @@ var services = [
   }
 ];
 
+var today = moment();
+var prevDay;
+var lastWeek = [];
+
+for(var i=1; i<8; i++) {
+  today = moment();
+  prevDay = today.subtract(i, 'days');
+  lastWeek.push(prevDay.format('MMMM') + ' ' + prevDay.date());
+}
+
 /***** EVENT LISTENERS *****/
 
 /***** FUNCTIONS ******/
@@ -88,7 +100,7 @@ function loadChart(service) {
   new Chart($('#' + service.id +'_chart'), {
     type: 'bar',
     data: {
-      labels: ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7'],
+      labels: [lastWeek[6], lastWeek[5], lastWeek[4], lastWeek[3], lastWeek[2], lastWeek[1], lastWeek[0]],
       datasets: [
         {
           label: 'Uptime (%)',
