@@ -89,7 +89,7 @@ def parse(delta,fileName):
         nameJsonData["meanHttpTime"] = nameData['http_time'].mean()
         # add to main json
         jsonData[name] = nameJsonData
-    with open("fileName", 'w') as file:
+    with open(fileName, 'w') as file:
         json.dump(jsonData,file)
 def deleteOld():
     dbCon = connector.connect(user="uptime", password="vNg&.+4]6h2nuR00", host='localhost', database="uptime")
