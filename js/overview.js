@@ -76,61 +76,18 @@ var services = [
 ];
 
 var today = moment();
-var prevDay;
-var lastWeek = [];
-
-for(var i=1; i<8; i++) {
-  today = moment();
-  prevDay = today.subtract(i, 'days');
-  lastWeek.push(prevDay.format('MMMM') + ' ' + prevDay.date());
-}
 
 /***** EVENT LISTENERS *****/
+$('a').click( function(e) {
+  xmlhttp = new XMLHttpRequest();
+  // xmlhttp.open() and xmlhttp.send()
+});
 
 /***** FUNCTIONS ******/
 function updateServiceData(service) {
   services.forEach( function (service) {
     for(var i=0; i<7; i++) {
       service.data.push(Math.round(100 * (Math.random() * 100)) / 100);
-    }
-  });
-}
-
-function loadChart(service) {
-  new Chart($('#' + service.id +'_chart'), {
-    type: 'bar',
-    data: {
-      labels: [lastWeek[6], lastWeek[5], lastWeek[4], lastWeek[3], lastWeek[2], lastWeek[1], lastWeek[0]],
-      datasets: [
-        {
-          label: 'Uptime (%)',
-          backgroundColor: '#7FFF00',
-          data: service.data
-        },
-        {
-          label: 'Downtime (%)',
-          backgroundColor: '#FFC125',
-          data: [(100 - service.data[0]), (100 - service.data[1]), (100 - service.data[2]), (100 - service.data[3]), (100 - service.data[4]), (100 - service.data[5]), (100 - service.data[6])]
-        }
-      ]
-    },
-    options: {
-      legend: { display: false },
-      title: {
-        display: false,
-      },
-      scales: {
-        yAxes: [{
-          stacked: true,
-          ticks: {
-            suggestedMin: 0,
-            suggestedMax: 100
-          }
-        }],
-        xAxes: [{
-          stacked: true
-        }]
-      }
     }
   });
 }
@@ -142,15 +99,12 @@ services.forEach( function (service) {
 
   $('#services_wrapper').append('\
     <div class="service">\
-      <h3 class="service_name">' + service.name +'</h3>\
+      <a href="details.html"><h3 class="service_name">' + service.name +'</h3></a>\
       <span class="current_status">(current status: <span class="status" id="' + service.id + '_status">' + service.status + '</span>)</span>\
-      <canvas class="service_chart" id="' + service.id + '_chart"></canvas>\
     </div>\
   ');
 
   if(service.status === 'offline') {
     $('#' + service.id + '_status').css('background-color', '#FFC125');
   }
-
-  loadChart(service);
 });

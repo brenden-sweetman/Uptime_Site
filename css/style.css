@@ -35,6 +35,16 @@ h2 {
   font-weight: lighter;
 }
 
+#footer {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 75px;
+  background-color: rgb(165, 20, 23);
+}
+
+/*** overview.html ***/
+
 #services_wrapper {
   width: 100%;
   margin: 12px;
@@ -43,7 +53,8 @@ h2 {
 
 .service {
   display: inline-block;
-  margin: 0 12px 48px 0;
+  width: 100%;
+  margin: 24px 0 24px 0;
   text-align: center;
 }
 
@@ -65,16 +76,23 @@ h2 {
   background-color: #7FFF00;
 }
 
-.service_chart {
-  width: 420px;
-  height: 300px;
-  font-family: Helvetica, "Helvetica", serif;
+/*** details.html ***/
+
+#details_wrapper {
+  width: 100%;
+  margin: 12px;
+  height: 100%;
 }
 
-#footer {
-  margin: 0;
-  padding: 0;
+.detail {
+  display: inline-block;
+  width: 50vw;
+  height: 25vw;
+  text-align: center;
+  margin: 12px 0 12px 0;
+}
+
+.service_chart {
   width: 100%;
-  height: 75px;
-  background-color: rgb(165, 20, 23);
+  font-family: Helvetica, "Helvetica", serif;
 }
