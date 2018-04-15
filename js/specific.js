@@ -1,14 +1,81 @@
 /***** VARIABLES *****/
 moment().format();
 
-var selected_service =   {
+var selectedService = {};
+
+var services = [
+  {
     name: 'Ares',
     id: 'ares',
+    status: 0,
     data: [],
     domain: 'ares.wustl.edu',
-    ip: '128.252.67.118',
-    status: 'online'
-  };
+    ip: '128.252.67.118'
+  }, {
+    name: 'Classic Catalog',
+    id: 'classic_catalog',
+    status: 0,
+    data: [],
+    domain: 'catalog.wustl.edu',
+    ip: '128.252.67.17'
+  },/* {
+    name: 'Digital Gateway',
+    id: 'digital_gateway',
+    status: 0,
+    data: [],
+    domain: 'digital.wustl.edu',
+    ip: '128.252.67.14'
+  }, {
+    name: 'Findit',
+    id: 'findit',
+    status: 0,
+    data: [],
+    domain: '',
+    ip: ''
+  },*/ {
+    name: 'Illiad',
+    id: 'illiad',
+    status: 0,
+    data: [],
+    domain: 'illiad.wustl.edu',
+    ip: '128.252.67.41'
+  }, /*{
+    name: 'Libguides',
+    id: 'libguides',
+    status: 0,
+    data: [],
+    domain: 'libguides.wustl.edu',
+    ip: '52.54.77.227'
+  }, {
+    name: 'OCLC WorldCat',
+    id: 'worldcat',
+    status: 0,
+    data: [],
+    domain: 'www.worldcat.org',
+    ip: '132.174.0.31'
+  }, {
+    name: 'Primo',
+    id: 'primo',
+    status: 0,
+    data: [],
+    domain: 'wash-primo.hosted.exlibrisgroup.com',
+    ip: '66.151.7.251'
+  },*/ {
+    name: 'Repository (Samvera)',
+    id: 'sam_repo',
+    status: 0,
+    data: [],
+    domain: 'repository.wustl.edu',
+    ip: '128.252.67.231'
+  }, {
+    name: 'Streaming Video (Samvera)',
+    id: 'sam_video',
+    status: 0,
+    data: [],
+    description: 'streamingvideo.wustl.edu',
+    ip: '128.252.67.8'
+  }
+];
 
 var today = moment();
 var prevDay;
@@ -21,14 +88,39 @@ for(var i=1; i<8; i++) {
 }
 
 /***** FUNCTIONS ******/
-function updateServiceData(service) {
-  for(var i=0; i<7; i++) {
-    selected_service.data.push(Math.round(100 * (Math.random() * 100)) / 100);
-  }
+function urlData(param) {
+    var results = new RegExp('[\?&]' + param + '=([^]*)').exec(window.location.href);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
 }
 
-function loadChart(service) {
-  new Chart($('#' + selected_service.id +'_chart'), {
+function updateServiceData(service) {
+  /*
+  var dataRequest = new XMLHttpRequest();
+  dataRequest.open('GET', 'data/longData.json', true);
+
+  dataRequest.onload = function() {
+    var serviceData = JSON.parse(dataRequest.responseText);
+
+    selectedService.data = serviceData[selectedService.name].data;
+
+    displayDetails();
+  };
+
+  dataRequest.send(null);
+  */
+}
+
+function displayDetails() {
+  loadChart();
+}
+
+function loadChart() {
+  new Chart($('#' + selectedService.id +'_chart'), {
     type: 'bar',
     data: {
       labels: [lastWeek[6], lastWeek[5], lastWeek[4], lastWeek[3], lastWeek[2], lastWeek[1], lastWeek[0]],
@@ -36,12 +128,12 @@ function loadChart(service) {
         {
           label: 'Uptime (%)',
           backgroundColor: '#7FFF00',
-          data: selected_service.data
+          data: selectedService.data
         },
         {
           label: 'Downtime (%)',
           backgroundColor: '#FFC125',
-          data: [(100 - selected_service.data[0]), (100 - selected_service.data[1]), (100 - selected_service.data[2]), (100 - selected_service.data[3]), (100 - selected_service.data[4]), (100 - selected_service.data[5]), (100 - selected_service.data[6])]
+          data: [(100 - selectedService.data[0]), (100 - selectedService.data[1]), (100 - selectedService.data[2]), (100 - selectedService.data[3]), (100 - selectedService.data[4]), (100 - selectedService.data[5]), (100 - selectedService.data[6])]
         }
       ]
     },
@@ -67,17 +159,12 @@ function loadChart(service) {
 }
 
 /***** MAIN RUN *****/
-// update data
+var serviceId = urlData('id');
+
+services.forEach( function (service) {
+  if(service.id === serviceId) {
+    selectedService = service;
+  }
+});
+
 updateServiceData();
-
-$('#details_wrapper').append('\
-  <div class="detail">\
-    <canvas class="service_chart" id="' + selected_service.id + '_chart"></canvas>\
-  </div>\
-');
-
-if(selected_service.status === 'offline') {
-  $('#' + selected_service.id + '_status').css('background-color', '#FFC125');
-}
-
-loadChart(selected_service);
