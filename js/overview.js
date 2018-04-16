@@ -104,8 +104,11 @@ function displayServices() {
   services.forEach( function (service) {
     $('#services_wrapper').append('\
       <div class="service">\
-        <a href="details.html/?id=' + service.id + '"><h3 class="service_name">' + service.name +'</h3></a>\
-        <span class="current_status">(current status: <span class="status" id="' + service.id + '_status">' + service.status + '</span>)</span>\
+        <div class="col1"><h3 class="service_name"><a href="details.html/?id=' + service.id + '">' + service.name +'</a></h3></div>\
+        <div class="col2"><span class="current_status">(current status: <span class="status" id="' + service.id + '_status">' + service.status + '</span>)</span></div>\
+        <div class="col3">column 3</div>\
+        <div class="col4">column 4</div>\
+        <div class="col5">column 5</div>\
       </div>\
     ');
 

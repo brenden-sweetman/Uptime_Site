@@ -47,23 +47,74 @@ h2 {
 
 #services_wrapper {
   width: 100%;
-  margin: 12px;
+  margin: 0;
   height: 100%;
 }
 
-.service {
-  display: inline-block;
+#legend {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 40% 15% 15% 15% 15%;
   width: 100%;
-  margin: 24px 0 24px 0;
+  margin: 24px 0 3px 0;
+}
+
+#labelBig {
+  text-align: left;
+  margin: 0 0 0 6px;
+  font-size: 12px;
+  font-family: Helvetica, "Helvetica", serif;
+  font-weight: lighter;
+  color: #acacac;
+}
+
+.labelSmall {
   text-align: center;
+  font-size: 12px;
+  font-family: Helvetica, "Helvetica", serif;
+  font-weight: lighter;
+  color: #acacac;
+}
+
+.service {
+  display: grid;
+  grid-gap: 0;
+  grid-template-columns: 40% 15% 15% 15% 15%;
+  width: 100%;
+  height: auto;
+  margin: 0 0 24px 0;
+  border-top: 5px solid black;
+}
+
+.col1, .col2, .col3, .col4, .col5 {
+  height: auto;
+  padding: 6px;
+}
+
+.col1 {
+  text-align: left;
+  border-right: 3px solid black;
+}
+
+.col2, .col3, .col4, .col5 {
+  text-align: center;
+  border-left: 1px solid black;
 }
 
 .service_name {
-  margin: 0;
+  margin: 24px;
   padding: 0;
   font-family: "Libre Baskerville", "Times New Roman", serif;
-  font-size: 15px;
+  font-size: 24px;
   font-weight: lighter;
+}
+
+.service_name a {
+  color: black;
+  text-decoration: none;
+}
+
+.service_name a:hover {
   text-decoration: underline;
 }
 
