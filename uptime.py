@@ -91,8 +91,6 @@ def parseLong():
     names = data.name.unique()
     # pull each day
     dates = data.access_time.map(lambda t: t.date()).unique()
-    print(names)
-    print(dates)
     # create new entry for each name
     for name in names:
         nameData=data.loc[data['name']==name]
