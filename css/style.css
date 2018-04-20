@@ -68,7 +68,7 @@ h2 {
 #legend {
   display: grid;
   grid-gap: 0;
-  grid-template-columns: 40% 15% 15% 15% 15%;
+  grid-template-columns: 40% 15% 15% 15%;
   width: 100%;
   margin: 24px 0 3px 0;
 }
@@ -93,7 +93,7 @@ h2 {
 .service {
   display: grid;
   grid-gap: 0;
-  grid-template-columns: 40% 15% 15% 15% 15%;
+  grid-template-columns: 40% 15% 15% 15%;
   width: 100%;
   height: auto;
   margin: 0 0 24px 0;
@@ -132,14 +132,9 @@ h2 {
   text-decoration: underline;
 }
 
-.current_status {
-  font-size: 10px;
-  font-family: Helvetica, "Helvetica", sans-serif;
-}
-
 .status {
   position: relative;
-  top: 20px;
+  top: 24px;
   left: 50%;
   transform: translate(-50%, 0);
   display: block;
@@ -148,6 +143,23 @@ h2 {
   font-weight: bold;
   font-size: 18px;
   background-color: #7FFF00;
+  font-family: Helvetica, "Helvetica", sans-serif;
+  border-radius: 6px;
+}
+
+.mean_http, .mean_ping {
+  position: relative;
+  top: 24px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: block;
+  padding: 6px;
+  width: 60px;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #acacac;
+  font-family: Helvetica, "Helvetica", sans-serif;
+  border-radius: 6px;
 }
 
 /*** details.html ***/
