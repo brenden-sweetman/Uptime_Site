@@ -92,9 +92,10 @@ def parseLong():
     # pull each day
     dates = data.access_time.map(lambda t: t.date()).unique()
     # create new entry for each name
-    for name in names:
+    for i,name in enumerate(names):
         nameData=data.loc[data['name']==name]
         nameJsonData={}
+        nameJsonData["name"]= name
         # create a new entry for each date in the entry for the name
         for date in dates:
             # pull entries forthe day
@@ -112,7 +113,7 @@ def parseLong():
             #add to nameJson list
             nameJsonData[date.strftime('%Y-%m-%d')]=dateJsonData
         #add nameJson to main dateJsonData
-        jsonData[name]=nameJsonData
+        jsonData[str(i)]=nameJsonData
     # write json
     with open("longData.json", 'w') as file:
         json.dump(jsonData,file)
@@ -134,10 +135,11 @@ def parseShort():
     # pull each name
     names = data.name.unique()
     # for each name calculate values
-    for name in names:
+    for i,name in enumarate(names):
         # pull data for only this site
         nameData=data.loc[data['name']==name]
         nameJsonData={}
+        nameJsonData["name"] = name
         # Is site up?
         statusCounts = pd.value_counts(nameData['status_code'].values)
         try:
@@ -148,7 +150,7 @@ def parseShort():
         # Whats the average http timeDelta
         nameJsonData["meanHttpTime"] = nameData['http_time'].mean()
         # add to main json
-        jsonData[name] = nameJsonData
+        jsonData[str(i)] = nameJsonData
     # write json
     with open("shortData.json", 'w') as file:
         json.dump(jsonData,file)
