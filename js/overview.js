@@ -1,79 +1,7 @@
 /***** VARIABLES *****/
 moment().format();
 
-var services = [
-  {
-    name: 'Ares',
-    id: 'ares',
-    status: 0,
-    data: [],
-    domain: 'ares.wustl.edu',
-    ip: '128.252.67.118'
-  }, {
-    name: 'Classic Catalog',
-    id: 'classic_catalog',
-    status: 0,
-    data: [],
-    domain: 'catalog.wustl.edu',
-    ip: '128.252.67.17'
-  },/* {
-    name: 'Digital Gateway',
-    id: 'digital_gateway',
-    status: 0,
-    data: [],
-    domain: 'digital.wustl.edu',
-    ip: '128.252.67.14'
-  }, {
-    name: 'Findit',
-    id: 'findit',
-    status: 0,
-    data: [],
-    domain: '',
-    ip: ''
-  },*/ {
-    name: 'Illiad',
-    id: 'illiad',
-    status: 0,
-    data: [],
-    domain: 'illiad.wustl.edu',
-    ip: '128.252.67.41'
-  }, /*{
-    name: 'Libguides',
-    id: 'libguides',
-    status: 0,
-    data: [],
-    domain: 'libguides.wustl.edu',
-    ip: '52.54.77.227'
-  }, {
-    name: 'OCLC WorldCat',
-    id: 'worldcat',
-    status: 0,
-    data: [],
-    domain: 'www.worldcat.org',
-    ip: '132.174.0.31'
-  }, {
-    name: 'Primo',
-    id: 'primo',
-    status: 0,
-    data: [],
-    domain: 'wash-primo.hosted.exlibrisgroup.com',
-    ip: '66.151.7.251'
-  },*/ {
-    name: 'Repository (Samvera)',
-    id: 'sam_repo',
-    status: 0,
-    data: [],
-    domain: 'repository.wustl.edu',
-    ip: '128.252.67.231'
-  }, {
-    name: 'Streaming Video (Samvera)',
-    id: 'sam_video',
-    status: 0,
-    data: [],
-    description: 'streamingvideo.wustl.edu',
-    ip: '128.252.67.8'
-  }
-];
+var services = [];
 
 var today = moment();
 
@@ -85,14 +13,16 @@ $('.service_name a').click( function(e) {
 /***** FUNCTIONS ******/
 function updateServiceData() {
   var dataRequest = new XMLHttpRequest();
-  dataRequest.open('GET', 'data/shortData.json', true);
+  dataRequest.open('GET', 'sampleJsonFiles/shortDataExample.json', true);
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);
 
-    services.forEach( function (service) {
-      service.status = serviceData[service.name].status;
-    });
+    var i = 0;
+    while(serviceData[i] != null) {
+      services.push = serviceData[i];
+      i++;
+    }
 
     displayServices();
   };
@@ -105,10 +35,10 @@ function displayServices() {
     $('#services_wrapper').append('\
       <div class="service">\
         <div class="col1"><h3 class="service_name"><a href="details.html/?id=' + service.id + '">' + service.name +'</a></h3></div>\
-        <div class="col2"><span class="current_status">(current status: <span class="status" id="' + service.id + '_status">' + service.status + '</span>)</span></div>\
-        <div class="col3">column 3</div>\
-        <div class="col4">column 4</div>\
-        <div class="col5">column 5</div>\
+        <div class="col2"><span class="current_status">Uptime in Last 20 Minutes... <span class="status" id="' + service.id + '_status">' + Math.round(service.status*100) + '%</span></span></div>\
+        <div class="col3"><span></span></div>\
+        <div class="col4"><span></span></div>\
+        <div class="col5"><span></span></div>\
       </div>\
     ');
 
@@ -119,7 +49,7 @@ function displayServices() {
       $('#' + service.id + '_status').css('background-color', '#FFC125');
     }
     else {
-      $('#' + service.id + '_status').css('background-color', 'red');
+      $('#' + service.id + '_status').css('background-color', '#f2ff42');
     }
   });
 }
