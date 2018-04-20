@@ -78,7 +78,7 @@ var services = [
 var today = moment();
 
 /***** EVENT LISTENERS *****/
-$('a').click( function(e) {
+$('.service_name a').click( function(e) {
 
 });
 

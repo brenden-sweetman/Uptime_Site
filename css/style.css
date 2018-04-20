@@ -12,35 +12,49 @@ body {
   padding: 0;
   width: 100%;
   height: 50px;
-  background-color: rgb(165, 20, 23);
+  background-color: #a51417;
+  border-top: 5px solid #72121b;
 }
 
 #logo {
   position: absolute;
-  left: 50px;
-  top: 0px;
-  height: 50px;
+  left: 90px;
+  top: 15px;
+  height: 28px;
 }
 
 h2 {
   position: absolute;
-  left: 363px;
-  top: 15px;
-  height: 35px;
+  left: 430px;
+  top: 16px;
+  height: 20px;
   margin: 0;
-  padding: 0;
-  color: white;
+  padding: 3px 6px 3px 6px;
+  color: #acacac;
+  background-color: white;
   font-family: Helvetica, "Helvetica", serif;
   font-size: 18px;
   font-weight: lighter;
+  border-radius: 3px;
 }
 
 #footer {
   margin: 0;
-  padding: 0;
   width: 100%;
-  height: 75px;
-  background-color: rgb(165, 20, 23);
+  height: 30px;
+  padding: 20px 0 10px 0;
+  background-color: #a51417;
+  border-top: 5px solid #72121b;
+  color: white;
+  font-size: 0.8em;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  line-height: 20px;
+}
+
+#copyright {
+  position: relative;
+  top: 0;
+  left: 90px;
 }
 
 /*** overview.html ***/
