@@ -135,7 +135,7 @@ def parseShort():
     # pull each name
     names = data.name.unique()
     # for each name calculate values
-    for i,name in enumarate(names):
+    for i,name in enumerate(names):
         # pull data for only this site
         nameData=data.loc[data['name']==name]
         nameJsonData={}
