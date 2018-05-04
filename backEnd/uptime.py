@@ -82,7 +82,7 @@ def parseLong():
     timeDelta = datetime.timedelta(days=7)
     nowDateString = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     thenDateString = (datetime.datetime.today()-timeDelta).strftime('%Y-%m-%d')
-    queryString = "SELECT domains.name as name,access_time,status_code,error_message,ping_time,http_time FROM requests JOIN domains ON requests.domain_id=domains.id WHERE access_time BETWEEN '{:s}' AND '{:s}' ORDER BY requests.access_time DESC".format(thenDateString,nowDateString)
+    queryString = "SELECT domains.name as name,domain_id,access_time,status_code,error_message,ping_time,http_time FROM requests JOIN domains ON requests.domain_id=domains.id WHERE access_time BETWEEN '{:s}' AND '{:s}' ORDER BY requests.access_time DESC".format(thenDateString,nowDateString)
     data = pd.read_sql(queryString, con=dbCon)
     dbCon.close()
     # prepare data for parsing
@@ -96,6 +96,7 @@ def parseLong():
         nameData=data.loc[data['name']==name]
         nameJsonData={}
         nameJsonData["name"]= name
+        nameJsonData["id"] = nameData['domain_id'][0]
         # create a new entry for each date in the entry for the name
         for date in dates:
             # pull entries forthe day
@@ -128,7 +129,7 @@ def parseShort():
     timeDelta = datetime.timedelta(seconds=1200)
     nowDateString = datetime.datetime.today().strftime('%Y-%m-%d %H:%M:%S')
     thenDateString = (datetime.datetime.today()-timeDelta).strftime('%Y-%m-%d %H:%M:%S')
-    queryString = "SELECT domains.name as name,access_time,status_code,error_message,ping_time,http_time FROM requests JOIN domains ON requests.domain_id=domains.id WHERE access_time BETWEEN '{:s}' AND '{:s}' ORDER BY requests.access_time DESC".format(thenDateString,nowDateString)
+    queryString = "SELECT domains.name as name,domain_id,access_time,status_code,error_message,ping_time,http_time FROM requests JOIN domains ON requests.domain_id=domains.id WHERE access_time BETWEEN '{:s}' AND '{:s}' ORDER BY requests.access_time DESC".format(thenDateString,nowDateString)
     data = pd.read_sql(queryString, con=dbCon)
     dbCon.close()
     jsonData={}
@@ -140,6 +141,7 @@ def parseShort():
         nameData=data.loc[data['name']==name]
         nameJsonData={}
         nameJsonData["name"] = name
+        nameJsonData["id"] = nameData['domain_id'][0]
         # Is site up?
         statusCounts = pd.value_counts(nameData['status_code'].values)
         try:
