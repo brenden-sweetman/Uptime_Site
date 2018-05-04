@@ -1,1 +1,3 @@
+
 {"1": {"meanPingTime": 0.017333333333333336, "status": 0, "name": "local", "meanHttpTime": 0.0}, "2": {"meanPingTime": 42.23888888888889, "status": 1.0, "name": "Repository (Samvera)", "meanHttpTime": 136.86744444444446}, "5": {"meanPingTime": 42.09444444444445, "status": 1.0, "name": "Ares", "meanHttpTime": 339.8061666666667}, "3": {"meanPingTime": 42.19444444444445, "status": 1.0, "name": "Illiad", "meanHttpTime": 299.5786111111111}, "0": {"meanPingTime": 39.68888888888889, "status": 1.0, "name": "Streaming Video (Samvera)", "meanHttpTime": 406.85366666666664}, "4": {"meanPingTime": 42.083333333333336, "status": 1.0, "name": "Classic Catalog", "meanHttpTime": 222.20455555555557}}
+
