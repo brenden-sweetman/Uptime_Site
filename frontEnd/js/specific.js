@@ -6,6 +6,7 @@ var selectedService = {};
 var today = moment();
 var prevDay;
 var lastWeek = [];
+
 var longDataPath = 'src/longData.json';
 
 for(var i=1; i<8; i++) {
@@ -13,6 +14,7 @@ for(var i=1; i<8; i++) {
   prevDay = today.subtract(i, 'days');
   lastWeek.push(prevDay.format('YYYY-MM-DD'));
   //prevDay.format('MMMM') + ' ' +
+}
 
 /***** FUNCTIONS ******/
 /*** this function grabs the selected service id from the url ***/
@@ -47,8 +49,12 @@ function displayDetails(serviceData) {
 
 /*** this function takes the serviceData parsed from longData.json and plots it using chart.js ***/
 function loadChart(serviceData) {
-  var selectedService = serviceData[serviceId];
-
+  var selectedService;
+  for (i=0; i< serviceData.length; i++){
+    if (serviceId === serviceData[i].id){
+      selectedService = serviceData[i];
+    }
+  }
   $( '#service_name' ).html(selectedService.name);
 
   var serviceDataByDay = [];
