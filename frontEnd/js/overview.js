@@ -3,7 +3,7 @@ moment().format();
 
 var today = moment();
 
-var shortDataPath = 'sampleJsonFiles/shortDataExample.json';
+var shortDataPath = 'src/shortData.json';
 
 /***** EVENT LISTENERS *****/
 

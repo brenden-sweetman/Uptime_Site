@@ -5,21 +5,14 @@ var selectedService = {};
 
 var today = moment();
 var prevDay;
-/* UNCOMMENT FOR PRODUCTION */
-//var lastWeek = [];
-var lastWeek = ['2018-04-13', '2018-04-14', '2018-04-15', '2018-04-16', '2018-04-17', '2018-04-18', '2018-04-19', '2018-04-20'];
+var lastWeek = [];
+var longDataPath = 'src/longData.json';
 
-var longDataPath = '/sampleJsonFiles/longDataExample.json';
-
-/* UNCOMMENT FOR PRODUCTION */
-/*
 for(var i=1; i<8; i++) {
   today = moment();
   prevDay = today.subtract(i, 'days');
   lastWeek.push(prevDay.format('YYYY-MM-DD'));
   //prevDay.format('MMMM') + ' ' +
-}
-*/
 
 /***** FUNCTIONS ******/
 /*** this function grabs the selected service id from the url ***/
