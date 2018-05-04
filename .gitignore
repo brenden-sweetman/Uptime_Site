@@ -8,4 +8,7 @@ node_modules
 # Python
 uptime_python
 
+# temp running files
+shortData.json
+longData.json
 
