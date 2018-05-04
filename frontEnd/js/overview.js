@@ -9,7 +9,7 @@ var today = moment();
 /***** FUNCTIONS ******/
 function updateServiceData() {
   var dataRequest = new XMLHttpRequest();
-  dataRequest.open('GET', 'sampleJsonFiles/shortDataExample.json', true);
+  dataRequest.open('GET', '../backEnd/shortData.json', true);
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);

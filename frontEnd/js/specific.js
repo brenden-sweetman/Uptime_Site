@@ -28,7 +28,7 @@ function urlData(param) {
 
 function updateServiceData(serviceId) {
   var dataRequest = new XMLHttpRequest();
-  dataRequest.open('GET', '/sampleJsonFiles/longDataExample.json', true);
+  dataRequest.open('GET', '../backEnd/longData.json', true);
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);
