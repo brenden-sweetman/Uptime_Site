@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WUptime</title>
+  <!-- CDN's -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+
+  <!-- STYLE -->
+    <link type="text/css" rel="stylesheet" href="/css/style.css" />
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="header">
+      <a href="https://wustl.edu/"><img id="logo" src="/img/logo_white.svg" alt="WUSTL" /></a>
+      <a href="http://127.0.0.1:8080/"><h2> / wuptime</h2></a>
+    </div>
+
+    <div id="details_wrapper">
+
+      <!-- chart goes here -->
+      <div class="detail">
+        <canvas class="service_chart"</canvas>
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div id="copyright">
+        ©2018 Washington University in St. Louis
+      </div>
+    </div>
+
+  <!-- SCRIPTS -->
+    <script src="/js/specific.js"></script>
+  </body>
+</html>
