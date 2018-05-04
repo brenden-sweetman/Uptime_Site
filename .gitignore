@@ -1,5 +1,10 @@
-uptimepython/
-longData.json
-shortData.json
+# gitignore for Uptime_Site
+# MAC OS
 .DS_Store
-uptime_python/
+
+# Node
+node_modules
+
+# Python
+uptime_python
+
