@@ -96,7 +96,7 @@ def parseLong():
         nameData=data.loc[data['name']==name]
         nameJsonData={}
         nameJsonData["name"]= name
-        nameJsonData["id"] = nameData['domain_id'][0]
+        nameJsonData["id"] = str(nameData['domain_id'].values[0])
         # create a new entry for each date in the entry for the name
         for date in dates:
             # pull entries forthe day
@@ -141,7 +141,7 @@ def parseShort():
         nameData=data.loc[data['name']==name]
         nameJsonData={}
         nameJsonData["name"] = name
-        nameJsonData["id"] = nameData['domain_id'][0]
+        nameJsonData["id"] = str(nameData['domain_id'].values[0])
         # Is site up?
         statusCounts = pd.value_counts(nameData['status_code'].values)
         try:
