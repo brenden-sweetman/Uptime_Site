@@ -5,17 +5,24 @@ var selectedService = {};
 
 var today = moment();
 var prevDay;
-var lastWeek = [];
+/* UNCOMMENT FOR PRODUCTION */
+//var lastWeek = [];
+var lastWeek = ['2018-04-13', '2018-04-14', '2018-04-15', '2018-04-16', '2018-04-17', '2018-04-18', '2018-04-19', '2018-04-20'];
 
-/* FIX DATE FORMATTING FOR CHART AXIS-LABEL */
+var longDataPath = '/sampleJsonFiles/longDataExample.json';
+
+/* UNCOMMENT FOR PRODUCTION */
+/*
 for(var i=1; i<8; i++) {
   today = moment();
   prevDay = today.subtract(i, 'days');
   lastWeek.push(prevDay.format('YYYY-MM-DD'));
   //prevDay.format('MMMM') + ' ' +
 }
+*/
 
 /***** FUNCTIONS ******/
+/*** this function grabs the selected service id from the url ***/
 function urlData(param) {
     var results = new RegExp('[\?&]' + param + '=([^]*)').exec(window.location.href);
     if (results==null){
@@ -26,9 +33,10 @@ function urlData(param) {
     }
 }
 
+/*** this function makes an AJAX GET request and parses the longData.json file ***/
 function updateServiceData(serviceId) {
   var dataRequest = new XMLHttpRequest();
-  dataRequest.open('GET', '/sampleJsonFiles/longDataExample.json', true);
+  dataRequest.open('GET', longDataPath, true);
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);
@@ -39,19 +47,23 @@ function updateServiceData(serviceId) {
   dataRequest.send(null);
 }
 
+/*** I kept this function separate from loadChart() in case we wanted to add other data visualizations ***/
 function displayDetails(serviceData) {
   loadChart(serviceData);
 }
 
+/*** this function takes the serviceData parsed from longData.json and plots it using chart.js ***/
 function loadChart(serviceData) {
   var selectedService = serviceData[serviceId];
 
+  $( '#service_name' ).html(selectedService.name);
+
   var serviceDataByDay = [];
   for(var i=0; i<7; i++) {
-    serviceDataByDay.push(selectedService[lastWeek[i]].status);
+    serviceDataByDay.push(Math.round(selectedService[lastWeek[i]].status * 1000) / 1000);
   }
 
-  new Chart($('.service_chart'), {
+  new Chart( $('.service_chart' ), {
     type: 'bar',
     data: {
       labels: [lastWeek[6], lastWeek[5], lastWeek[4], lastWeek[3], lastWeek[2], lastWeek[1], lastWeek[0]],
@@ -69,17 +81,18 @@ function loadChart(serviceData) {
       ]
     },
     options: {
-      legend: { display: false },
+      title: selectedService.name,
       title: {
-        display: false,
+        display: true,
       },
+      legend: { display: true },
       scales: {
         yAxes: [{
           stacked: true,
           ticks: {
             suggestedMin: 0,
             suggestedMax: 100
-          }
+          },
         }],
         xAxes: [{
           stacked: true
@@ -90,8 +103,6 @@ function loadChart(serviceData) {
 }
 
 /***** MAIN RUN *****/
-var serviceId = urlData('id');
+var serviceId = '' + urlData('id');
 
 updateServiceData(serviceId);
-
-updateServiceData();

@@ -3,13 +3,15 @@ moment().format();
 
 var today = moment();
 
+var shortDataPath = 'sampleJsonFiles/shortDataExample.json';
+
 /***** EVENT LISTENERS *****/
 
 
 /***** FUNCTIONS ******/
 function updateServiceData() {
   var dataRequest = new XMLHttpRequest();
-  dataRequest.open('GET', 'sampleJsonFiles/shortDataExample.json', true);
+  dataRequest.open('GET', shortDataPath, true);
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);
@@ -23,8 +25,7 @@ function updateServiceData() {
 function displayServices(serviceData) {
   var i = 0;
   while(serviceData[i] != null) {
-    var service = serviceData[i];
-    var currRating = 1;
+    var service = serviceData['' + i];
     $('#services_wrapper').append('\
       <div class="service">\
         <div class="col1"><h3 class="service_name"><a href="details.html/?id=' + i + '">' + service.name +'</a></h3></div>\
