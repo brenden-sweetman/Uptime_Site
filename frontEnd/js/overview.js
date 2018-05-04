@@ -28,7 +28,7 @@ function displayServices(serviceData) {
     var service = serviceData['' + i];
     $('#services_wrapper').append('\
       <div class="service">\
-        <div class="col1"><h3 class="service_name"><a href="details.html/?id=' + service.id + '">' + service.name +'</a></h3></div>\
+        <div class="col1"><h3 class="service_name"><a href="details.html?id=' + service.id + '">' + service.name +'</a></h3></div>\
         <div class="col2"><span class="status" id="' + i + '_status">' + Math.round(service.status*100) + '%</span></div>\
         <div class="col3"><span class="mean_http" id="' + i + '_mean_http">' + Math.round(service.meanHttpTime) + 'ms</span></div>\
         <div class="col4"><span class="mean_ping" id="' + i + '_mean_ping">' + Math.round(service.meanPingTime) + 'ms</span></div>\

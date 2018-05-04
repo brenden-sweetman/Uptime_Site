@@ -35,7 +35,6 @@ function updateServiceData(serviceId) {
 
   dataRequest.onload = function() {
     var serviceData = JSON.parse(dataRequest.responseText);
-
     displayDetails(serviceData);
   };
 
@@ -49,12 +48,14 @@ function displayDetails(serviceData) {
 
 /*** this function takes the serviceData parsed from longData.json and plots it using chart.js ***/
 function loadChart(serviceData) {
-  var selectedService;
-  for (i=0; i< serviceData.length; i++){
-    if (serviceId === serviceData[i].id){
-      selectedService = serviceData[i];
+    var selectedService=[];
+    var i = 0;
+    while(serviceData[i] != null){
+	if (serviceId === serviceData[i].id){
+	    selectedService = serviceData[i];
+	}
+	i++;
     }
-  }
   $( '#service_name' ).html(selectedService.name);
 
   var serviceDataByDay = [];
