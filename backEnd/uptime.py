@@ -116,7 +116,7 @@ def parseLong():
         #add nameJson to main dateJsonData
         jsonData[str(i)]=nameJsonData
     # write json
-    with open("longData.json", 'w') as file:
+    with open("../frontEnd/src/longData.json", 'w') as file:
         json.dump(jsonData,file)
     # call a timer to run method again in 10 min
     threading.Timer(6000,parseLong).start()
@@ -154,7 +154,7 @@ def parseShort():
         # add to main json
         jsonData[str(i)] = nameJsonData
     # write json
-    with open("shortData.json", 'w') as file:
+    with open("../frontEnd/src/shortData.json", 'w') as file:
         json.dump(jsonData,file)
     #start timer to call this method again in 60 seconds
     threading.Timer(60,parseShort).start()
