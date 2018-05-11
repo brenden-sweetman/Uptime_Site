@@ -9,7 +9,7 @@ var lastWeek = [];
 
 var longDataPath = 'src/longData.json';
 
-for(var i=1; i<8; i++) {
+for(var i=0; i<8; i++) {
   today = moment();
   prevDay = today.subtract(i, 'days');
   lastWeek.push(prevDay.format('YYYY-MM-DD'));
