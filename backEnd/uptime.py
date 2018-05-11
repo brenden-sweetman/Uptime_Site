@@ -105,7 +105,7 @@ def parseLong():
             # Is site up?
             statusCounts = pd.value_counts(dateData['status_code'].values)
             try:
-                dateJsonData["status"] = statusCounts[200]/nameData.shape[0]
+                dateJsonData["status"] = statusCounts[200]/dateData.shape[0]
             except: dateJsonData["status"] = 0
             # Whats the average ping timeDelta
             dateJsonData["meanPingTime"] = dateData['ping_time'].mean()
